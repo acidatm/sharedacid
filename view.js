@@ -15,9 +15,9 @@ window.addEventListener("load",function(){
     y:yPos
   }
   let canvas = document.getElementById("canvas")
-  window.resolution = params.get("y") ? Number(params.get("r")) : (Math.min(1,(((window.innerWidth + window.innerHeight) * 0.5) / 2000)) * 0.9 + 0.1) * 0.5
+  window.resolution = params.get("r") ? Number(params.get("r")) : (Math.min(1,(((window.innerWidth + window.innerHeight) * 0.5) / 2000)) * 0.9 + 0.1) * 0.5
   window.addEventListener("resize",function(){
-    window.resolution = (Math.min(1,(((window.innerWidth + window.innerHeight) * 0.5) / 2000)) * 0.9 + 0.1) * 0.5
+    window.resolution = params.get("r") ? Number(params.get("r")) : (Math.min(1,(((window.innerWidth + window.innerHeight) * 0.5) / 2000)) * 0.9 + 0.1) * 0.5
   })
   socket.emit('join')
   socket.on('update', function(msg) {
