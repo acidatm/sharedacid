@@ -7,7 +7,7 @@ let config = randomize()
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
-app.get('/tripsitter', (req, res) => {
+app.get('/view', (req, res) => {
   res.sendFile(__dirname + '/view.html');
 });
 app.get('/index.js',function(req,res){

@@ -19,7 +19,6 @@ let delta = {
   y:0
 }
 let moving = false
-
 window.addEventListener("load",function(){
   let canvas = document.getElementById("canvas")
   // document.body.addEventListener("click",randomize)
@@ -70,7 +69,9 @@ function randomize(){
   socket.emit('randomize')
 }
 function move(x,y){
+
   if(moving){
+    hideTutorial()
     delta.x = x - origin.x
     delta.y = y - origin.y
     position.x = base.x + delta.x
@@ -78,12 +79,16 @@ function move(x,y){
   }
 
 }
+function hideTutorial(){
+  document.getElementById("tutorial").classList.add("hidden")
+}
 function down(x,y){
   origin.x = x
   origin.y = y
   moving = true
 }
 function up(){
+  hideTutorial()
   if(Math.abs(delta.x) < minMovement && Math.abs(delta.y) < minMovement){
     randomize()
   }
